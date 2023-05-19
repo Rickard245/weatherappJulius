@@ -25,7 +25,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   Future<Weather> _getWeather() async {
     try {
-      final weather = await _weatherService.getWeather('madrid');
+      String city =
+          _cityController.text.isEmpty ? 'madrid' : _cityController.text;
+      final weather = await _weatherService.getWeather(city);
 
       return weather;
     } catch (e) {
